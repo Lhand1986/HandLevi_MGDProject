@@ -16,8 +16,11 @@
 		5D0896441D22DF8A00A1D765 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896421D22DF8A00A1D765 /* LaunchScreen.storyboard */; };
 		5D08964F1D22DF8A00A1D765 /* BoxPusherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D08964E1D22DF8A00A1D765 /* BoxPusherTests.swift */; };
 		5D08965A1D22DF8A00A1D765 /* BoxPusherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0896591D22DF8A00A1D765 /* BoxPusherUITests.swift */; };
-		5D08966A1D26EBC500A1D765 /* hero.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896691D26EBC500A1D765 /* hero.atlas */; };
-		5D08966C1D26EBD100A1D765 /* boxes.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D08966B1D26EBD100A1D765 /* boxes.atlas */; };
+		5D08966F1D26FEC400A1D765 /* EnterStage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5D08966D1D26FEC400A1D765 /* EnterStage.wav */; };
+		5D0896701D26FEC400A1D765 /* ExitStage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5D08966E1D26FEC400A1D765 /* ExitStage.wav */; };
+		5D0896721D2702FD00A1D765 /* boxes.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896711D2702FD00A1D765 /* boxes.atlas */; };
+		5D0896741D27030500A1D765 /* hero.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896731D27030500A1D765 /* hero.atlas */; };
+		5D0896761D28622900A1D765 /* background.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896751D28622900A1D765 /* background.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +56,11 @@
 		5D0896551D22DF8A00A1D765 /* BoxPusherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoxPusherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0896591D22DF8A00A1D765 /* BoxPusherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxPusherUITests.swift; sourceTree = "<group>"; };
 		5D08965B1D22DF8A00A1D765 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5D0896691D26EBC500A1D765 /* hero.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = hero.atlas; sourceTree = "<group>"; };
-		5D08966B1D26EBD100A1D765 /* boxes.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = boxes.atlas; sourceTree = "<group>"; };
+		5D08966D1D26FEC400A1D765 /* EnterStage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = EnterStage.wav; sourceTree = "<group>"; };
+		5D08966E1D26FEC400A1D765 /* ExitStage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ExitStage.wav; sourceTree = "<group>"; };
+		5D0896711D2702FD00A1D765 /* boxes.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = boxes.atlas; sourceTree = "<group>"; };
+		5D0896731D27030500A1D765 /* hero.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = hero.atlas; sourceTree = "<group>"; };
+		5D0896751D28622900A1D765 /* background.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = background.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +111,11 @@
 		5D0896341D22DF8A00A1D765 /* BoxPusher */ = {
 			isa = PBXGroup;
 			children = (
-				5D08966B1D26EBD100A1D765 /* boxes.atlas */,
-				5D0896691D26EBC500A1D765 /* hero.atlas */,
+				5D0896731D27030500A1D765 /* hero.atlas */,
+				5D0896711D2702FD00A1D765 /* boxes.atlas */,
+				5D08966D1D26FEC400A1D765 /* EnterStage.wav */,
+				5D08966E1D26FEC400A1D765 /* ExitStage.wav */,
+				5D0896751D28622900A1D765 /* background.atlas */,
 				5D0896351D22DF8A00A1D765 /* AppDelegate.swift */,
 				5D0896371D22DF8A00A1D765 /* GameScene.sks */,
 				5D0896391D22DF8A00A1D765 /* GameScene.swift */,
@@ -242,11 +251,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D0896381D22DF8A00A1D765 /* GameScene.sks in Resources */,
-				5D08966C1D26EBD100A1D765 /* boxes.atlas in Resources */,
-				5D08966A1D26EBC500A1D765 /* hero.atlas in Resources */,
+				5D08966F1D26FEC400A1D765 /* EnterStage.wav in Resources */,
+				5D0896761D28622900A1D765 /* background.atlas in Resources */,
+				5D0896721D2702FD00A1D765 /* boxes.atlas in Resources */,
+				5D0896741D27030500A1D765 /* hero.atlas in Resources */,
 				5D0896441D22DF8A00A1D765 /* LaunchScreen.storyboard in Resources */,
 				5D0896411D22DF8A00A1D765 /* Assets.xcassets in Resources */,
 				5D08963F1D22DF8A00A1D765 /* Main.storyboard in Resources */,
+				5D0896701D26FEC400A1D765 /* ExitStage.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
