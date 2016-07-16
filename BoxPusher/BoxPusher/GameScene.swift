@@ -11,7 +11,6 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: Variables
-    
     var goalMarks: [SKSpriteNode] = []
     var boxes: [SKSpriteNode] = []
     var player: SKSpriteNode?
@@ -19,6 +18,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var touchedNode: String!
     let walkRepeat: Int = 10
     
+    // DPad enumeration which handles the different movement cases
     enum DPad: Int {
         case U,D,L,R
         var direction: String {
@@ -33,7 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 return "R"
             }
         }
-        
+        // Determine the necessary vector of movement for linear interpolation
         var move: (CGVector) {
             switch self {
             case U: return CGVectorMake(0, 80)
@@ -42,7 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             case R: return CGVectorMake(80, 0)
             }
         }
-        
+        //Add a constant for the speed, which can be modified here if changes need to be made
         var speed: NSTimeInterval {
             switch self {
             case U: return NSTimeInterval(1)
@@ -51,9 +51,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             case R: return NSTimeInterval(1)
             }
         }
-        
-        
-        
     }
     
     
@@ -62,28 +59,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         //Initialize the background sprite node and set the height and width to equal the screen
+        
         let enterSound = SKAction.playSoundFileNamed("EnterStage.wav", waitForCompletion: false)
-        let background = SKSpriteNode(imageNamed: "tile_aqua")
-        background.size.height = frame.size.height
-        background.size.width = frame.size.width
         physicsWorld.contactDelegate = self
         runAction(enterSound)
     }
     
     
     // MARK: Touch Handling
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        /* Called when a touch begins */
         updateTouches(touches)
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         updateTouches(touches)
     }
-    
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
     }
     
+    /* This function will handle the actual body of the work behind user touches
+     applies the case to the DPad enumeration and calls the appropriate movement
+     function. */
     func updateTouches(touches: Set<UITouch>) {
         for touch in touches {
             lastTouch = touch.locationInNode(self)
@@ -107,6 +104,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //MARK: Contact handling
     
+    /* We're making certain that there is some user feedback for when the character
+     comes into contact with a box that can move. It may not always be extremely
+     apparent which sprites are able to move and which aren't, and the feedback
+     should be valuable to the user experience. */
     func didBeginContact(contact: SKPhysicsContact) {
         let boxSound = SKAction.playSoundFileNamed("BoxTouch.wav", waitForCompletion: true)
         
@@ -132,25 +133,4 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             runAction(walkSound)
         }
     }
-    
-    func userBoxCollision(hero: SKNode, box: SKNode) {
-        let boxSound = SKAction.playSoundFileNamed("BoxTouch.wav", waitForCompletion: true)
-        if box.name == "moveBox" {
-            runAction(boxSound)
-        }
-    }
-    
-    
-    /* Create an SKAction that moves the character according to the case. 
-     Example:
-     let moveAction = SKAction.moveTo(touchPosition, duration: 0.5) 
-     
-     Then, we need to tell the character to move there
-     
-     sprite!.runAction(moveAction)*/
-    
-    
-    
-    
-    
 }
