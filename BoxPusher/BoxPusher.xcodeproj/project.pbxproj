@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0506BA1D3AC0BB00FA2AF6 /* BoxTouch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5D0506B81D3AC0BB00FA2AF6 /* BoxTouch.wav */; };
+		5D0506BD1D3AC22300FA2AF6 /* Walk.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5D0506BC1D3AC22300FA2AF6 /* Walk.wav */; };
 		5D0896361D22DF8A00A1D765 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0896351D22DF8A00A1D765 /* AppDelegate.swift */; };
 		5D0896381D22DF8A00A1D765 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896371D22DF8A00A1D765 /* GameScene.sks */; };
 		5D08963A1D22DF8A00A1D765 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0896391D22DF8A00A1D765 /* GameScene.swift */; };
@@ -21,7 +23,6 @@
 		5D0896721D2702FD00A1D765 /* boxes.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896711D2702FD00A1D765 /* boxes.atlas */; };
 		5D0896741D27030500A1D765 /* hero.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896731D27030500A1D765 /* hero.atlas */; };
 		5D0896761D28622900A1D765 /* background.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896751D28622900A1D765 /* background.atlas */; };
-		5DB808781D302C6800C54CF9 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB808771D302C6800C54CF9 /* Hero.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D0506B81D3AC0BB00FA2AF6 /* BoxTouch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BoxTouch.wav; sourceTree = "<group>"; };
+		5D0506BC1D3AC22300FA2AF6 /* Walk.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Walk.wav; sourceTree = "<group>"; };
 		5D0896321D22DF8A00A1D765 /* BoxPusher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxPusher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0896351D22DF8A00A1D765 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D0896371D22DF8A00A1D765 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -62,7 +65,6 @@
 		5D0896711D2702FD00A1D765 /* boxes.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = boxes.atlas; sourceTree = "<group>"; };
 		5D0896731D27030500A1D765 /* hero.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = hero.atlas; sourceTree = "<group>"; };
 		5D0896751D28622900A1D765 /* background.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = background.atlas; sourceTree = "<group>"; };
-		5DB808771D302C6800C54CF9 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,8 @@
 		5D0896341D22DF8A00A1D765 /* BoxPusher */ = {
 			isa = PBXGroup;
 			children = (
+				5D0506BC1D3AC22300FA2AF6 /* Walk.wav */,
+				5D0506B81D3AC0BB00FA2AF6 /* BoxTouch.wav */,
 				5D0896731D27030500A1D765 /* hero.atlas */,
 				5D0896711D2702FD00A1D765 /* boxes.atlas */,
 				5D08966D1D26FEC400A1D765 /* EnterStage.wav */,
@@ -121,7 +125,6 @@
 				5D0896351D22DF8A00A1D765 /* AppDelegate.swift */,
 				5D0896371D22DF8A00A1D765 /* GameScene.sks */,
 				5D0896391D22DF8A00A1D765 /* GameScene.swift */,
-				5DB808771D302C6800C54CF9 /* Hero.swift */,
 				5D08963B1D22DF8A00A1D765 /* GameViewController.swift */,
 				5D08963D1D22DF8A00A1D765 /* Main.storyboard */,
 				5D0896401D22DF8A00A1D765 /* Assets.xcassets */,
@@ -255,6 +258,8 @@
 			files = (
 				5D0896381D22DF8A00A1D765 /* GameScene.sks in Resources */,
 				5D08966F1D26FEC400A1D765 /* EnterStage.wav in Resources */,
+				5D0506BA1D3AC0BB00FA2AF6 /* BoxTouch.wav in Resources */,
+				5D0506BD1D3AC22300FA2AF6 /* Walk.wav in Resources */,
 				5D0896761D28622900A1D765 /* background.atlas in Resources */,
 				5D0896721D2702FD00A1D765 /* boxes.atlas in Resources */,
 				5D0896741D27030500A1D765 /* hero.atlas in Resources */,
@@ -289,7 +294,6 @@
 				5D08963A1D22DF8A00A1D765 /* GameScene.swift in Sources */,
 				5D08963C1D22DF8A00A1D765 /* GameViewController.swift in Sources */,
 				5D0896361D22DF8A00A1D765 /* AppDelegate.swift in Sources */,
-				5DB808781D302C6800C54CF9 /* Hero.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
