@@ -18,6 +18,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var touchedNode: String!
     let walkRepeat: Int = 10
     
+    // MARK: Sound initialization
+    let boxSound = SKAction.playSoundFileNamed("BoxTouch.wav", waitForCompletion: true)
+    let walkSound = SKAction.playSoundFileNamed("Walk.wav", waitForCompletion: true)
+    let enterSound = SKAction.playSoundFileNamed("EnterStage.wav", waitForCompletion: false)
+    let exitSound = SKAction.playSoundFileNamed("ExitStage.wav", waitForCompletion: true)
+    
+    
     // DPad enumeration which handles the different movement cases
     enum DPad: Int {
         case U,D,L,R
@@ -59,8 +66,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         //Initialize the background sprite node and set the height and width to equal the screen
-        
-        let enterSound = SKAction.playSoundFileNamed("EnterStage.wav", waitForCompletion: false)
+
         physicsWorld.contactDelegate = self
         runAction(enterSound)
     }
@@ -109,7 +115,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
      apparent which sprites are able to move and which aren't, and the feedback
      should be valuable to the user experience. */
     func didBeginContact(contact: SKPhysicsContact) {
-        let boxSound = SKAction.playSoundFileNamed("BoxTouch.wav", waitForCompletion: true)
         
         guard let firstBody = contact.bodyA.node?.name else {
             return print("FirstBodyFault")
@@ -121,16 +126,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             runAction(boxSound)
         }
     }
+    
+    //MARK: Updates
+    
+    override func update(currentTime: NSTimeInterval) {
+        print(currentTime)
+    }
+    
+    
     //MARK: User defined functions
     
     /* Create a function that takes distance, which object is moving, and how fast it's moving
      and translates that into an SKAction taken by the sprite */
     func moveAction(distance: CGVector, sprite: SKSpriteNode, speed: NSTimeInterval) {
         let move = SKAction.moveBy(distance, duration: speed)
-        let walkSound = SKAction.playSoundFileNamed("Walk.wav", waitForCompletion: true)
         sprite.runAction(move)
         for _ in 0..<walkRepeat {
             runAction(walkSound)
         }
     }
+    
+    /* This function handles the game win condition */
+    func endLevel() {
+        runAction(exitSound)
+    }
+    
 }
