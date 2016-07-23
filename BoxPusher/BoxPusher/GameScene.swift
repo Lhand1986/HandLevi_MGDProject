@@ -11,12 +11,33 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: Variables
-    var goalMarks: [SKSpriteNode] = []
-    var boxes: [SKSpriteNode] = []
-    var player: SKSpriteNode?
     var lastTouch: CGPoint? = nil
     var touchedNode: String!
+    var movesCounter: Int = 0
+    var scoreCount: Int = 0
+    var winCondition: Int = 1000
+    var loseCondition: Int = 2000
+    var changeScale : CGFloat!
+    var lastTime: NSTimeInterval = 0
+//    var speedDelta: CGFloat!
+  
+    // MARK: Node variable declaration
+    var boundingNodes =     [SKNode()]
+    var moveBoxNodes =      [SKNode()]
+    var dPadNode =          SKNode()
+    var winNodes =          [SKNode()]
+    var winBlock =          SKNode()
+    var heroNode =          SKSpriteNode()
+    var goalMarks:          [SKSpriteNode] = []
+    var boxes:              [SKSpriteNode] = []
+    var player:             SKSpriteNode?
+    var winLoseMessage =    SKLabelNode()
+    var movesCounterLabel:  SKLabelNode!
+    var labelNodes =        [SKLabelNode()]
+    var boxAnimate =        SKSpriteNode()
+    var poofAnimation:      SKAction!
     let walkRepeat: Int = 10
+    let sheet = poof()
     
     // MARK: Sound initialization
     let boxSound = SKAction.playSoundFileNamed("BoxTouch.wav", waitForCompletion: true)
@@ -60,15 +81,67 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    
     // MARK: SKScene
     
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        //Initialize the background sprite node and set the height and width to equal the screen
-
+        //Initialize an animation for the sprite atlas
+        poofAnimation = SKAction.animateWithTextures(sheet.poof(), timePerFrame: 0.15)
+        
+        /* Changed declaration of node from inside a function to being loaded with the view
+         for memory allocation purposes
+        Add nodes onscreen to specific arrays for utilization in different code structures */
+        enumerateChildNodesWithName("//*", usingBlock: {(node, stop) -> Void in
+            if      node.name == "moveBox"      {self.moveBoxNodes.append(node)}
+            else if node.name == "mazeBox"      {self.boundingNodes.append(node)}
+            else if node.name == "pauseLabel"   {self.labelNodes.append(node as! SKLabelNode)}
+            else if node.name == "movesLabel"   {self.labelNodes.append(node as! SKLabelNode)}
+            else if node.name == "movesCounter" {self.labelNodes.append(node as! SKLabelNode)}
+            else if node.name == "pointBox"     {self.winNodes.append(node)}
+        })
+        
+        //Declaring nodes that don't fit into the previous enumeration
+        movesCounterLabel = childNodeWithName("movesCounter") as! SKLabelNode
+        heroNode = childNodeWithName("heroBody") as! SKSpriteNode
+        winLoseMessage = childNodeWithName("winBlock")?.childNodeWithName("winNotification") as! SKLabelNode
+        boxAnimate = childNodeWithName("boxPlace") as! SKSpriteNode
+        
+        //Add the win block section and set the value to hidden
+        if let winScreen = childNodeWithName("winBlock") {
+            winBlock = winScreen
+            winBlock.hidden = true
+        }
+        //Removing null nodes
+        moveBoxNodes.removeAtIndex(0)
+        boundingNodes.removeAtIndex(0)
+        labelNodes.removeAtIndex(0)
+        winNodes.removeAtIndex(0)
+        
+        //Set the win condition max number to match the number of win nodes
+        winCondition = winNodes.count
+        loseCondition = 7
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            changeScale = 1.0
+        } else if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            changeScale = 1.25
+        }
+        
+        
+        
+        //Set the scaling of the dPad
+        if let nodeName = childNodeWithName("dPadMain") {
+            dPadNode = nodeName
+            dPadNode.setScale(changeScale)
+        }
+        
+        //Set the scaling of the labels
+        for i in 0..<labelNodes.count {
+            labelNodes[i].setScale(changeScale)
+        }
+        
         physicsWorld.contactDelegate = self
         runAction(enterSound)
+        
     }
     
     
@@ -94,15 +167,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let node = self.nodeAtPoint(location)
             if let nodeTouch = node.name {
                 touchedNode = nodeTouch
-                let heroNode = childNodeWithName("heroBody") as! SKSpriteNode
                 if nodeTouch == "L" {
                     moveAction(DPad.L.move, sprite: heroNode, speed: DPad.L.speed)
+                    scoreTrack()
                 } else if nodeTouch == "R" {
                     moveAction(DPad.R.move, sprite: heroNode, speed: DPad.L.speed)
+                    scoreTrack()
                 } else if nodeTouch == "U" {
                     moveAction(DPad.U.move, sprite: heroNode, speed: DPad.L.speed)
+                    scoreTrack()
                 } else if nodeTouch == "D" {
                     moveAction(DPad.D.move, sprite: heroNode, speed: DPad.L.speed)
+                    scoreTrack()
+                } else if nodeTouch == "pauseLabel" {
+                    pause()
+                    childNodeWithName("dPadMain")?.hidden = !(childNodeWithName("dPadMain")?.hidden)!
+                } else if nodeTouch == "replayButton" {
+                    restartGame()
                 }
             }
         }
@@ -124,13 +205,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         if firstBody == "heroBody" && secondBody == "moveBox" {
             runAction(boxSound)
+            
+            /* Refining some of the physics of the game. Without pinning the node
+             and setting the mass to a higher number, the sprite still has quite a
+             bit of "squish" to it. Replacing the sprite texture with the animation
+             to provide some extra user feedback for doing the right thing. Also, the
+             win condition is called in this block. */
+        } else if firstBody == "moveBox" && secondBody == "pointBox" {
+            contact.bodyA.node!.physicsBody!.pinned = true
+            contact.bodyA.node!.physicsBody!.mass = 1000
+            contact.bodyA.node!.runAction(poofAnimation)
+            scoreCount+=1
+            endLevel(scoreCount, winScore: winCondition)
         }
     }
     
     //MARK: Updates
     
     override func update(currentTime: NSTimeInterval) {
-        print(currentTime)
+        
+        //Check the lose condition on update
+        if movesCounter >= loseCondition {
+            endLevel(scoreCount, winScore: winCondition)
+        }
+    }
+    override func didFinishUpdate() {
+        
     }
     
     
@@ -147,8 +247,42 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     /* This function handles the game win condition */
-    func endLevel() {
-        runAction(exitSound)
+    func endLevel(playerScore: Int, winScore: Int) {
+        if movesCounter >= loseCondition {
+            winLoseMessage.text = "Too many moves!"
+            winBlock.hidden = false
+        } else if playerScore == winScore {
+            runAction(exitSound)
+            winBlock.hidden = false
+        }
+    }
+    
+    /* Make a function that freezes movement, deactivates the D-Pad, allows the user to pick up
+     where they left off, and resides above everything else on the HUD. */
+    func pause() {
+        scene!.view?.paused = !(scene!.view?.paused)!
+    }
+    
+    /* Keep track of the amount of moves to finish per level, and overall */
+    func scoreTrack() {
+        movesCounter+=1
+        movesCounterLabel.text = String(movesCounter)
+    }
+    
+    /* Create a function that will call the game scene again using the same 
+     method as the View Controller */
+    func restartGame() {
+        if let scene = GameScene(fileNamed:"GameScene"){
+            // Configure the view.
+            let skView = self.scene!.view! as SKView
+            skView.showsFPS = true
+            skView.showsNodeCount = true
+            /* Sprite Kit applies additional optimizations to improve rendering performance */
+            skView.ignoresSiblingOrder = true
+            /* Set the scale mode to scale to fit the window */
+            scene.scaleMode = .AspectFill
+            skView.presentScene(scene)
+        }
     }
     
 }

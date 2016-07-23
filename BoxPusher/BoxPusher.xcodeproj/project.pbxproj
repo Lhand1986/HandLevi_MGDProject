@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D040A3F1D4418D5003301DD /* poof.atlasc in Resources */ = {isa = PBXBuildFile; fileRef = 5D040A3D1D4418D5003301DD /* poof.atlasc */; };
+		5D040A401D4418D5003301DD /* poof.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D040A3E1D4418D5003301DD /* poof.swift */; };
 		5D0506BA1D3AC0BB00FA2AF6 /* BoxTouch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5D0506B81D3AC0BB00FA2AF6 /* BoxTouch.wav */; };
 		5D0506BD1D3AC22300FA2AF6 /* Walk.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5D0506BC1D3AC22300FA2AF6 /* Walk.wav */; };
 		5D0896361D22DF8A00A1D765 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0896351D22DF8A00A1D765 /* AppDelegate.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D040A3D1D4418D5003301DD /* poof.atlasc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = poof.atlasc; sourceTree = "<group>"; };
+		5D040A3E1D4418D5003301DD /* poof.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = poof.swift; sourceTree = "<group>"; };
 		5D0506B81D3AC0BB00FA2AF6 /* BoxTouch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BoxTouch.wav; sourceTree = "<group>"; };
 		5D0506BC1D3AC22300FA2AF6 /* Walk.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Walk.wav; sourceTree = "<group>"; };
 		5D0896321D22DF8A00A1D765 /* BoxPusher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxPusher.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +119,8 @@
 		5D0896341D22DF8A00A1D765 /* BoxPusher */ = {
 			isa = PBXGroup;
 			children = (
+				5D040A3D1D4418D5003301DD /* poof.atlasc */,
+				5D040A3E1D4418D5003301DD /* poof.swift */,
 				5D0506BC1D3AC22300FA2AF6 /* Walk.wav */,
 				5D0506B81D3AC0BB00FA2AF6 /* BoxTouch.wav */,
 				5D0896731D27030500A1D765 /* hero.atlas */,
@@ -257,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D0896381D22DF8A00A1D765 /* GameScene.sks in Resources */,
+				5D040A3F1D4418D5003301DD /* poof.atlasc in Resources */,
 				5D08966F1D26FEC400A1D765 /* EnterStage.wav in Resources */,
 				5D0506BA1D3AC0BB00FA2AF6 /* BoxTouch.wav in Resources */,
 				5D0506BD1D3AC22300FA2AF6 /* Walk.wav in Resources */,
@@ -292,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D08963A1D22DF8A00A1D765 /* GameScene.swift in Sources */,
+				5D040A401D4418D5003301DD /* poof.swift in Sources */,
 				5D08963C1D22DF8A00A1D765 /* GameViewController.swift in Sources */,
 				5D0896361D22DF8A00A1D765 /* AppDelegate.swift in Sources */,
 			);
