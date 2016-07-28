@@ -10,15 +10,11 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        playGame()
+        //Changed the boilerplate to load the menu scene instead of going straight into the game
         if let scene = MenuScene(fileNamed:"MenuScene") {
-            // Configure the view.
             let skView = self.view as! SKView
             skView.showsFPS = true
             skView.showsNodeCount = true
@@ -49,19 +45,6 @@ class GameViewController: UIViewController {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
-    }
-    
-    // MARK: User Defined Functions
-    
-    func playGame() {
-        if let scene = GameScene(fileNamed:"GameScene") {
-            let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            skView.ignoresSiblingOrder = true
-            scene.scaleMode = .AspectFill
-            skView.presentScene(scene)
-        }
     }
     
 }

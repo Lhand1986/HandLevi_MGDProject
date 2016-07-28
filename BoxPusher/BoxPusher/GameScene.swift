@@ -154,8 +154,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         updateTouches(touches)
     }
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    }
     
     /* This function will handle the actual body of the work behind user touches
      applies the case to the DPad enumeration and calls the appropriate movement
@@ -182,6 +180,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 } else if nodeTouch == "pauseLabel" {
                     pause()
                     childNodeWithName("dPadMain")?.hidden = !(childNodeWithName("dPadMain")?.hidden)!
+                    
+                    //Allow the user to restart the game or go back to the main menu
                 } else if nodeTouch == "replayButton" {if let scene = GameScene(fileNamed:"GameScene"){sceneLoad(scene)}
                 } else if nodeTouch == "QuitLabel" {if let scene = MenuScene(fileNamed:"MenuScene"){sceneLoad(scene)}}
             }
