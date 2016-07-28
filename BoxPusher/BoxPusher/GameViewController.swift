@@ -16,7 +16,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let scene = GameScene(fileNamed:"GameScene") {
+//        playGame()
+        if let scene = MenuScene(fileNamed:"MenuScene") {
             // Configure the view.
             let skView = self.view as! SKView
             skView.showsFPS = true
@@ -49,4 +50,18 @@ class GameViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
+    // MARK: User Defined Functions
+    
+    func playGame() {
+        if let scene = GameScene(fileNamed:"GameScene") {
+            let skView = self.view as! SKView
+            skView.showsFPS = true
+            skView.showsNodeCount = true
+            skView.ignoresSiblingOrder = true
+            scene.scaleMode = .AspectFill
+            skView.presentScene(scene)
+        }
+    }
+    
 }
