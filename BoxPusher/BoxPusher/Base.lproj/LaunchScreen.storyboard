@@ -17,17 +17,113 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="udt-8M-I6i">
-                                <rect key="frame" x="180" y="140" width="240" height="252"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQF-1S-LKz">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="udt-8M-I6i">
+                                        <rect key="frame" x="210" y="210" width="180" height="180"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Box Pusher" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXz-pe-Zzh">
+                                        <rect key="frame" x="0.0" y="155" width="600" height="30"/>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="30"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Levi Hand - Student Full Sail University" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkz-ih-bV7">
+                                        <rect key="frame" x="0.0" y="415" width="600" height="17"/>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="dkz-ih-bV7" firstAttribute="leading" secondItem="bQF-1S-LKz" secondAttribute="leading" id="1KK-V7-CKG"/>
+                                    <constraint firstItem="udt-8M-I6i" firstAttribute="centerX" secondItem="bQF-1S-LKz" secondAttribute="centerX" id="4ZA-ic-WI9"/>
+                                    <constraint firstItem="dkz-ih-bV7" firstAttribute="centerX" secondItem="udt-8M-I6i" secondAttribute="centerX" id="95o-9c-zC4"/>
+                                    <constraint firstAttribute="trailing" secondItem="dkz-ih-bV7" secondAttribute="trailing" id="GC3-Gg-1hE"/>
+                                    <constraint firstItem="dkz-ih-bV7" firstAttribute="top" secondItem="udt-8M-I6i" secondAttribute="bottom" constant="25" id="ORY-Bd-3AI"/>
+                                    <constraint firstItem="PXz-pe-Zzh" firstAttribute="centerX" secondItem="udt-8M-I6i" secondAttribute="centerX" id="dck-9w-iZ6"/>
+                                    <constraint firstItem="udt-8M-I6i" firstAttribute="centerY" secondItem="bQF-1S-LKz" secondAttribute="centerY" id="gNx-2m-D4C"/>
+                                    <constraint firstItem="PXz-pe-Zzh" firstAttribute="leading" secondItem="bQF-1S-LKz" secondAttribute="leading" id="ijq-AX-BrY"/>
+                                    <constraint firstItem="udt-8M-I6i" firstAttribute="top" secondItem="PXz-pe-Zzh" secondAttribute="bottom" constant="25" id="rnL-Vn-1lV"/>
+                                    <constraint firstAttribute="trailing" secondItem="PXz-pe-Zzh" secondAttribute="trailing" id="v9W-ex-umy"/>
+                                </constraints>
+                                <variation key="widthClass=regular">
+                                    <mask key="subviews">
+                                        <include reference="udt-8M-I6i"/>
+                                        <include reference="PXz-pe-Zzh"/>
+                                        <include reference="dkz-ih-bV7"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="1KK-V7-CKG"/>
+                                        <include reference="95o-9c-zC4"/>
+                                        <include reference="GC3-Gg-1hE"/>
+                                        <include reference="ORY-Bd-3AI"/>
+                                        <include reference="4ZA-ic-WI9"/>
+                                        <include reference="gNx-2m-D4C"/>
+                                        <include reference="rnL-Vn-1lV"/>
+                                        <include reference="dck-9w-iZ6"/>
+                                        <include reference="ijq-AX-BrY"/>
+                                        <include reference="v9W-ex-umy"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <mask key="subviews">
+                                        <include reference="udt-8M-I6i"/>
+                                        <include reference="PXz-pe-Zzh"/>
+                                        <include reference="dkz-ih-bV7"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="1KK-V7-CKG"/>
+                                        <include reference="95o-9c-zC4"/>
+                                        <include reference="GC3-Gg-1hE"/>
+                                        <include reference="ORY-Bd-3AI"/>
+                                        <include reference="4ZA-ic-WI9"/>
+                                        <include reference="gNx-2m-D4C"/>
+                                        <include reference="rnL-Vn-1lV"/>
+                                        <include reference="dck-9w-iZ6"/>
+                                        <include reference="ijq-AX-BrY"/>
+                                        <include reference="v9W-ex-umy"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bQF-1S-LKz" secondAttribute="trailing" id="IIX-aT-Pz8"/>
+                            <constraint firstItem="bQF-1S-LKz" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="MbS-zR-5ur"/>
+                            <constraint firstItem="bQF-1S-LKz" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="Q4f-2b-lZf"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="bQF-1S-LKz" secondAttribute="bottom" id="yMb-7e-ZCy"/>
+                        </constraints>
+                        <variation key="widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="bQF-1S-LKz"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="IIX-aT-Pz8"/>
+                                <include reference="MbS-zR-5ur"/>
+                                <include reference="Q4f-2b-lZf"/>
+                                <include reference="yMb-7e-ZCy"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="bQF-1S-LKz"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="IIX-aT-Pz8"/>
+                                <include reference="MbS-zR-5ur"/>
+                                <include reference="Q4f-2b-lZf"/>
+                                <include reference="yMb-7e-ZCy"/>
+                            </mask>
+                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="375"/>
         </scene>
     </scenes>
     <resources>
