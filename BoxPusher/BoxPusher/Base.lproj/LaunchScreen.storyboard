@@ -56,16 +56,16 @@
                                         <include reference="dkz-ih-bV7"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="dck-9w-iZ6"/>
+                                        <include reference="ijq-AX-BrY"/>
+                                        <include reference="v9W-ex-umy"/>
+                                        <include reference="4ZA-ic-WI9"/>
+                                        <include reference="gNx-2m-D4C"/>
+                                        <include reference="rnL-Vn-1lV"/>
                                         <include reference="1KK-V7-CKG"/>
                                         <include reference="95o-9c-zC4"/>
                                         <include reference="GC3-Gg-1hE"/>
                                         <include reference="ORY-Bd-3AI"/>
-                                        <include reference="4ZA-ic-WI9"/>
-                                        <include reference="gNx-2m-D4C"/>
-                                        <include reference="rnL-Vn-1lV"/>
-                                        <include reference="dck-9w-iZ6"/>
-                                        <include reference="ijq-AX-BrY"/>
-                                        <include reference="v9W-ex-umy"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=regular">
@@ -75,16 +75,16 @@
                                         <include reference="dkz-ih-bV7"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="dck-9w-iZ6"/>
+                                        <include reference="ijq-AX-BrY"/>
+                                        <include reference="v9W-ex-umy"/>
+                                        <include reference="4ZA-ic-WI9"/>
+                                        <include reference="gNx-2m-D4C"/>
+                                        <include reference="rnL-Vn-1lV"/>
                                         <include reference="1KK-V7-CKG"/>
                                         <include reference="95o-9c-zC4"/>
                                         <include reference="GC3-Gg-1hE"/>
                                         <include reference="ORY-Bd-3AI"/>
-                                        <include reference="4ZA-ic-WI9"/>
-                                        <include reference="gNx-2m-D4C"/>
-                                        <include reference="rnL-Vn-1lV"/>
-                                        <include reference="dck-9w-iZ6"/>
-                                        <include reference="ijq-AX-BrY"/>
-                                        <include reference="v9W-ex-umy"/>
                                     </mask>
                                 </variation>
                             </view>
