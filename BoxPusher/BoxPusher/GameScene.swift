@@ -182,9 +182,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 } else if nodeTouch == "pauseLabel" {
                     pause()
                     childNodeWithName("dPadMain")?.hidden = !(childNodeWithName("dPadMain")?.hidden)!
-                } else if nodeTouch == "replayButton" {
-                    restartGame()
-                }
+                } else if nodeTouch == "replayButton" {if let scene = GameScene(fileNamed:"GameScene"){sceneLoad(scene)}
+                } else if nodeTouch == "QuitLabel" {if let scene = MenuScene(fileNamed:"MenuScene"){sceneLoad(scene)}}
             }
         }
     }
@@ -271,18 +270,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /* Create a function that will call the game scene again using the same 
      method as the View Controller */
-    func restartGame() {
-        if let scene = GameScene(fileNamed:"GameScene"){
-            // Configure the view.
-            let skView = self.scene!.view! as SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
-            /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
-            skView.presentScene(scene)
-        }
+    func sceneLoad(scene: SKScene) {
+        let skView = self.scene!.view! as SKView
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        /* Sprite Kit applies additional optimizations to improve rendering performance */
+        skView.ignoresSiblingOrder = true
+        /* Set the scale mode to scale to fit the window */
+        scene.scaleMode = .AspectFill
+        skView.presentScene(scene)
     }
-    
 }
+    
+
