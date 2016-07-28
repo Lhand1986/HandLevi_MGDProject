@@ -31,6 +31,7 @@
 		5DC172D21D49A49700C5098A /* InstructionsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5DC172D11D49A49700C5098A /* InstructionsScene.sks */; };
 		5DC172D41D49A4D400C5098A /* CreditsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5DC172D31D49A4D400C5098A /* CreditsScene.sks */; };
 		5DC172D61D49A4F100C5098A /* CreditsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC172D51D49A4F100C5098A /* CreditsScene.swift */; };
+		5DC172D81D49A89600C5098A /* Splash.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DC172D71D49A89600C5098A /* Splash.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		5DC172D11D49A49700C5098A /* InstructionsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = InstructionsScene.sks; sourceTree = "<group>"; };
 		5DC172D31D49A4D400C5098A /* CreditsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CreditsScene.sks; sourceTree = "<group>"; };
 		5DC172D51D49A4F100C5098A /* CreditsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsScene.swift; sourceTree = "<group>"; };
+		5DC172D71D49A89600C5098A /* Splash.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Splash.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				5D0896401D22DF8A00A1D765 /* Assets.xcassets */,
 				5D0896421D22DF8A00A1D765 /* LaunchScreen.storyboard */,
 				5D0896451D22DF8A00A1D765 /* Info.plist */,
+				5DC172D71D49A89600C5098A /* Splash.xcassets */,
 			);
 			path = BoxPusher;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				5D0506BA1D3AC0BB00FA2AF6 /* BoxTouch.wav in Resources */,
 				5D0506BD1D3AC22300FA2AF6 /* Walk.wav in Resources */,
 				5D0896761D28622900A1D765 /* background.atlas in Resources */,
+				5DC172D81D49A89600C5098A /* Splash.xcassets in Resources */,
 				5D5995171D493900003D60F8 /* MenuScene.sks in Resources */,
 				5DC172D21D49A49700C5098A /* InstructionsScene.sks in Resources */,
 				5D0896721D2702FD00A1D765 /* boxes.atlas in Resources */,
