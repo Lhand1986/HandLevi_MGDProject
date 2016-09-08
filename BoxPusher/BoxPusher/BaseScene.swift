@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class BaseScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: Variables
     var lastTouch: CGPoint? = nil
@@ -19,7 +19,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var loseCondition: Int = 2000
     var changeScale : CGFloat!
     var lastTime: NSTimeInterval = 0
-//    var speedDelta: CGFloat!
   
     // MARK: Node variable declaration
     var boundingNodes =     [SKNode()]
@@ -120,6 +119,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         winCondition = winNodes.count
         loseCondition = 7
         
+        for i in 0..<moveBoxNodes.count {
+            moveBoxNodes[i].physicsBody!.mass = 0.00001
+        }
+        heroNode.physicsBody!.mass = 1
+        
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
             changeScale = 1.0
         } else if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
@@ -182,7 +186,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     childNodeWithName("dPadMain")?.hidden = !(childNodeWithName("dPadMain")?.hidden)!
                     
                     //Allow the user to restart the game or go back to the main menu
-                } else if nodeTouch == "replayButton" {if let scene = GameScene(fileNamed:"GameScene"){sceneLoad(scene)}
+                } else if nodeTouch == "replayButton" {if let scene = Level1(fileNamed:"GameScene"){sceneLoad(scene)}
                 } else if nodeTouch == "QuitLabel" {if let scene = MenuScene(fileNamed:"MenuScene"){sceneLoad(scene)}}
             }
         }

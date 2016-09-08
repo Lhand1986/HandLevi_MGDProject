@@ -13,7 +13,7 @@
 		5D0506BD1D3AC22300FA2AF6 /* Walk.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5D0506BC1D3AC22300FA2AF6 /* Walk.wav */; };
 		5D0896361D22DF8A00A1D765 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0896351D22DF8A00A1D765 /* AppDelegate.swift */; };
 		5D0896381D22DF8A00A1D765 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896371D22DF8A00A1D765 /* GameScene.sks */; };
-		5D08963A1D22DF8A00A1D765 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0896391D22DF8A00A1D765 /* GameScene.swift */; };
+		5D08963A1D22DF8A00A1D765 /* BaseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0896391D22DF8A00A1D765 /* BaseScene.swift */; };
 		5D08963C1D22DF8A00A1D765 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D08963B1D22DF8A00A1D765 /* GameViewController.swift */; };
 		5D08963F1D22DF8A00A1D765 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D08963D1D22DF8A00A1D765 /* Main.storyboard */; };
 		5D0896411D22DF8A00A1D765 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896401D22DF8A00A1D765 /* Assets.xcassets */; };
@@ -26,6 +26,7 @@
 		5D0896741D27030500A1D765 /* hero.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896731D27030500A1D765 /* hero.atlas */; };
 		5D0896761D28622900A1D765 /* background.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896751D28622900A1D765 /* background.atlas */; };
 		5D1D9F5D1D4A7EDC00B91B82 /* MyActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5D1D9F5C1D4A7EDB00B91B82 /* MyActions.sks */; };
+		5D5818651D4C39B200427A1B /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5818641D4C39B200427A1B /* Level1.swift */; };
 		5D5995171D493900003D60F8 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5D5995161D493900003D60F8 /* MenuScene.sks */; };
 		5D59951B1D494856003D60F8 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D59951A1D494856003D60F8 /* MenuScene.swift */; };
 		5DC172D01D49A46C00C5098A /* InstructionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC172CF1D49A46C00C5098A /* InstructionsScene.swift */; };
@@ -60,7 +61,7 @@
 		5D0896321D22DF8A00A1D765 /* BoxPusher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxPusher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0896351D22DF8A00A1D765 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D0896371D22DF8A00A1D765 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		5D0896391D22DF8A00A1D765 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		5D0896391D22DF8A00A1D765 /* BaseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScene.swift; sourceTree = "<group>"; };
 		5D08963B1D22DF8A00A1D765 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		5D08963E1D22DF8A00A1D765 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D0896401D22DF8A00A1D765 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 		5D0896731D27030500A1D765 /* hero.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = hero.atlas; sourceTree = "<group>"; };
 		5D0896751D28622900A1D765 /* background.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = background.atlas; sourceTree = "<group>"; };
 		5D1D9F5C1D4A7EDB00B91B82 /* MyActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MyActions.sks; path = ../MyActions.sks; sourceTree = "<group>"; };
+		5D5818641D4C39B200427A1B /* Level1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
 		5D5995161D493900003D60F8 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		5D59951A1D494856003D60F8 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		5DC172CF1D49A46C00C5098A /* InstructionsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsScene.swift; sourceTree = "<group>"; };
@@ -146,11 +148,12 @@
 				5D0896751D28622900A1D765 /* background.atlas */,
 				5D0896351D22DF8A00A1D765 /* AppDelegate.swift */,
 				5D5995161D493900003D60F8 /* MenuScene.sks */,
-				5D0896371D22DF8A00A1D765 /* GameScene.sks */,
 				5D1D9F5C1D4A7EDB00B91B82 /* MyActions.sks */,
 				5DC172D11D49A49700C5098A /* InstructionsScene.sks */,
 				5DC172D31D49A4D400C5098A /* CreditsScene.sks */,
-				5D0896391D22DF8A00A1D765 /* GameScene.swift */,
+				5D0896371D22DF8A00A1D765 /* GameScene.sks */,
+				5D0896391D22DF8A00A1D765 /* BaseScene.swift */,
+				5D5818641D4C39B200427A1B /* Level1.swift */,
 				5D59951A1D494856003D60F8 /* MenuScene.swift */,
 				5D08963B1D22DF8A00A1D765 /* GameViewController.swift */,
 				5DC172CF1D49A46C00C5098A /* InstructionsScene.swift */,
@@ -327,9 +330,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D08963A1D22DF8A00A1D765 /* GameScene.swift in Sources */,
+				5D08963A1D22DF8A00A1D765 /* BaseScene.swift in Sources */,
 				5D040A401D4418D5003301DD /* poof.swift in Sources */,
 				5D59951B1D494856003D60F8 /* MenuScene.swift in Sources */,
+				5D5818651D4C39B200427A1B /* Level1.swift in Sources */,
 				5DC172D61D49A4F100C5098A /* CreditsScene.swift in Sources */,
 				5DC172D01D49A46C00C5098A /* InstructionsScene.swift in Sources */,
 				5D08963C1D22DF8A00A1D765 /* GameViewController.swift in Sources */,

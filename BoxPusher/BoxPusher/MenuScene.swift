@@ -40,7 +40,7 @@ class MenuScene: SKScene {
     
     /* This function determines which scene to pass through to the sceneLoad function */
     func userSelect(name: String) {
-        if name == "GameStart" {if let scene = GameScene(fileNamed:"GameScene"){sceneLoad(scene)}}
+        if name == "GameStart" {if let scene = Level1(fileNamed:"GameScene"){sceneLoad(scene)}}
             else if name == "GameInstructions" {if let scene = InstructionsScene(fileNamed:"InstructionsScene"){sceneLoad(scene)}}
             else if name == "GameCredits" {if let scene = CreditsScene(fileNamed:"CreditsScene"){sceneLoad(scene)}}
     }
