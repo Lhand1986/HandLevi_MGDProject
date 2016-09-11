@@ -45,6 +45,34 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     let exitSound = SKAction.playSoundFileNamed("ExitStage.wav", waitForCompletion: true)
     
     
+    // MARK: IAD Power-up variables
+    var powerUpStart: Bool = false
+    let powerUpSel: [String] = ["teleport", "jump"]
+    var powerUpNode = SKSpriteNode()
+    var power: String!
+    
+    // Declaration of SKActions for the jump sequence
+    let jumpMoveS = SKAction.moveToX(288, duration: 0.25)
+    let jumpMoveM = SKAction.moveToX(338, duration: 0.25)
+    let jumpMoveF = SKAction.moveToX(350, duration: 0.25)
+    let jumpScaleUp = SKAction.scaleTo(2, duration: 0.25)
+    let jumpScaleDown = SKAction.scaleTo(1, duration: 0.25)
+    var scaleSequence = SKAction()
+    
+    //Declaration of SKAction for the teleportation powerup
+    let teleport = SKAction.moveTo(CGPoint(x: 490, y: 432), duration: 0.1)
+    
+    //Initializing variable to hold the hole sprite
+    var holeBlock = SKSpriteNode()
+    
+    //Declaration of SKActions to fall down the hole
+    let holeMove = SKAction.moveToX(290, duration: 0.25)
+    let holeFall = SKAction.scaleBy(0.01, duration: 3)
+    var fallSequence = SKAction()
+    
+    //Set boolean for the fall sequence end
+    var fallBool = false
+    
     // DPad enumeration which handles the different movement cases
     enum DPad: Int {
         case U,D,L,R
@@ -86,6 +114,11 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         //Initialize an animation for the sprite atlas
         poofAnimation = SKAction.animateWithTextures(sheet.poof(), timePerFrame: 0.15)
         
+        //Initializing the scale sequence to allow the hero to jump
+        scaleSequence = SKAction.sequence([jumpMoveS, jumpScaleUp, jumpMoveM, jumpScaleDown, jumpMoveF])
+        
+        //Initializing the sequence to cause the hero to fall down the hole
+        fallSequence = SKAction.sequence([holeMove, holeFall])
         /* Changed declaration of node from inside a function to being loaded with the view
          for memory allocation purposes
         Add nodes onscreen to specific arrays for utilization in different code structures */
@@ -103,6 +136,8 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         heroNode = childNodeWithName("heroBody") as! SKSpriteNode
         winLoseMessage = childNodeWithName("winBlock")?.childNodeWithName("winNotification") as! SKLabelNode
         boxAnimate = childNodeWithName("boxPlace") as! SKSpriteNode
+        powerUpNode = childNodeWithName("powerUp") as! SKSpriteNode
+        holeBlock = childNodeWithName("holeBlock") as! SKSpriteNode
         
         //Add the win block section and set the value to hidden
         if let winScreen = childNodeWithName("winBlock") {
@@ -117,7 +152,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         
         //Set the win condition max number to match the number of win nodes
         winCondition = winNodes.count
-        loseCondition = 7
+        loseCondition = 9
         
         for i in 0..<moveBoxNodes.count {
             moveBoxNodes[i].physicsBody!.mass = 0.00001
@@ -145,6 +180,13 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         
         physicsWorld.contactDelegate = self
         runAction(enterSound)
+        
+        
+        //Set the initial physics for the hole
+        holeBlock.physicsBody = SKPhysicsBody(circleOfRadius: holeBlock.size.width / 2)
+        holeBlock.physicsBody!.dynamic = true
+        holeBlock.physicsBody!.affectedByGravity = false
+        
         
     }
     
@@ -219,7 +261,24 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             contact.bodyA.node!.physicsBody!.mass = 1000
             contact.bodyA.node!.runAction(poofAnimation)
             scoreCount+=1
-            endLevel(scoreCount, winScore: winCondition)
+            endLevel(scoreCount, winScore: winCondition, fall: fallBool)
+            
+            // IAD PowerUp
+            powerUpStart = true
+            powerBegin()
+            
+            //Checking to see which powerUp has been hit, then run the appropriate action
+        } else if firstBody == "heroBody" && secondBody == "teleport" {
+            heroNode.runAction(teleport)
+            powerUpNode.removeFromParent()
+            powerUpStart = false
+        } else if firstBody == "heroBody" && secondBody == "jump" {
+            heroNode.runAction(scaleSequence)
+            powerUpNode.removeFromParent()
+            powerUpStart = false
+            //Check to see if the player has fallen into the hole
+        } else if firstBody == "heroBody" && secondBody == "holeBlock" {
+            holeEnds()
         }
     }
     
@@ -229,11 +288,10 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         
         //Check the lose condition on update
         if movesCounter >= loseCondition {
-            endLevel(scoreCount, winScore: winCondition)
+            endLevel(scoreCount, winScore: winCondition, fall: fallBool)
         }
     }
     override func didFinishUpdate() {
-        
     }
     
     
@@ -250,14 +308,18 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     }
     
     /* This function handles the game win condition */
-    func endLevel(playerScore: Int, winScore: Int) {
+    func endLevel(playerScore: Int, winScore: Int, fall: Bool) {
         if movesCounter >= loseCondition {
             winLoseMessage.text = "Too many moves!"
             winBlock.hidden = false
         } else if playerScore == winScore {
             runAction(exitSound)
             winBlock.hidden = false
+        } else if fall {
+            winLoseMessage.text = "You fell down the hole!"
+            winBlock.hidden = false
         }
+        fallBool = false
     }
     
     /* Make a function that freezes movement, deactivates the D-Pad, allows the user to pick up
@@ -284,6 +346,32 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         scene.scaleMode = .AspectFill
         skView.presentScene(scene)
     }
+    
+    // Function to start implementation of power ups
+    func powerBegin() {
+        if powerUpStart {
+            /*Allow for a random selection of the powerups, set the node texture accordingly, apply a physics body for contact,
+             apply a name to the node for proper contact handling, and deactivate the holeBlock node*/
+            power = powerUpSel[(Int(arc4random_uniform(2)))]
+            powerUpNode.texture = SKTexture(imageNamed: power)
+            powerUpNode.physicsBody = SKPhysicsBody(circleOfRadius: powerUpNode.size.width / 2)
+            powerUpNode.physicsBody!.dynamic = true
+            powerUpNode.physicsBody!.affectedByGravity = false
+            powerUpNode.name = power
+            holeBlock.physicsBody = nil
+        }
+    }
+    // Function to end the game if the user hits the hole
+    func holeEnds() {
+        /* Deactivate the physics body for the block, so the hero sprite can pass through it, then call the fall sequence to
+         cause the hero sprite to advance to the middle of the hole, then vanish, set the fallBool to true, and call the end level
+         function. */
+        holeBlock.physicsBody = nil
+        heroNode.runAction(fallSequence)
+        fallBool = true
+        endLevel(scoreCount, winScore: winCondition, fall: fallBool)
+    }
+    
 }
     
 

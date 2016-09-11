@@ -26,6 +26,7 @@
 		5D0896741D27030500A1D765 /* hero.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896731D27030500A1D765 /* hero.atlas */; };
 		5D0896761D28622900A1D765 /* background.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896751D28622900A1D765 /* background.atlas */; };
 		5D1D9F5D1D4A7EDC00B91B82 /* MyActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5D1D9F5C1D4A7EDB00B91B82 /* MyActions.sks */; };
+		5D4025721D84C03D003E1133 /* powerups.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D4025711D84C03D003E1133 /* powerups.atlas */; };
 		5D5818651D4C39B200427A1B /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5818641D4C39B200427A1B /* Level1.swift */; };
 		5D5995171D493900003D60F8 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5D5995161D493900003D60F8 /* MenuScene.sks */; };
 		5D59951B1D494856003D60F8 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D59951A1D494856003D60F8 /* MenuScene.swift */; };
@@ -79,6 +80,7 @@
 		5D0896731D27030500A1D765 /* hero.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = hero.atlas; sourceTree = "<group>"; };
 		5D0896751D28622900A1D765 /* background.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = background.atlas; sourceTree = "<group>"; };
 		5D1D9F5C1D4A7EDB00B91B82 /* MyActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MyActions.sks; path = ../MyActions.sks; sourceTree = "<group>"; };
+		5D4025711D84C03D003E1133 /* powerups.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = powerups.atlas; sourceTree = "<group>"; };
 		5D5818641D4C39B200427A1B /* Level1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
 		5D5995161D493900003D60F8 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		5D59951A1D494856003D60F8 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		5D0896341D22DF8A00A1D765 /* BoxPusher */ = {
 			isa = PBXGroup;
 			children = (
+				5D4025711D84C03D003E1133 /* powerups.atlas */,
 				5D040A3D1D4418D5003301DD /* poof.atlasc */,
 				5D040A3E1D4418D5003301DD /* poof.swift */,
 				5D0506BC1D3AC22300FA2AF6 /* Walk.wav */,
@@ -305,6 +308,7 @@
 				5D0896441D22DF8A00A1D765 /* LaunchScreen.storyboard in Resources */,
 				5D0896411D22DF8A00A1D765 /* Assets.xcassets in Resources */,
 				5D08963F1D22DF8A00A1D765 /* Main.storyboard in Resources */,
+				5D4025721D84C03D003E1133 /* powerups.atlas in Resources */,
 				5D0896701D26FEC400A1D765 /* ExitStage.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
