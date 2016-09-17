@@ -7,8 +7,9 @@
 //
 
 import SpriteKit
+import GameKit
 
-class MenuScene: SKScene {
+class MenuScene: SKScene, GKGameCenterControllerDelegate {
     
     
     //MARK: Scene
@@ -43,6 +44,8 @@ class MenuScene: SKScene {
         if name == "GameStart" {if let scene = Level1(fileNamed:"GameScene"){sceneLoad(scene)}}
             else if name == "GameInstructions" {if let scene = InstructionsScene(fileNamed:"InstructionsScene"){sceneLoad(scene)}}
             else if name == "GameCredits" {if let scene = CreditsScene(fileNamed:"CreditsScene"){sceneLoad(scene)}}
+            else if name == "Leaderboard" {showLeaderboard()}
+        
     }
     
     //Rebuild the load function so it takes in the scene as a parameter
@@ -53,6 +56,21 @@ class MenuScene: SKScene {
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .AspectFill
         skView.presentScene(scene)
+    }
+    
+    //MARK: Game Center functionality 
+    
+    //This function is necessary for the GC Delegate parameters. Tells the app when the user has closed the Game Center.
+    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //Function to bring up the leaderboard in the appropriate variety of View Controller.
+    func showLeaderboard() {
+        let vc = self.view?.window?.rootViewController
+        let gKVC = GKGameCenterViewController()
+        gKVC.gameCenterDelegate = self
+        vc?.presentViewController(gKVC, animated: true, completion: nil)
     }
     
 }

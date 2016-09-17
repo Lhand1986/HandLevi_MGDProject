@@ -7,8 +7,12 @@
 //  Background sprite credit to Copyright 2013 Jordan Irwin from http://opengameart.org/content/tile
 
 import SpriteKit
+import GameKit
 
 class BaseScene: SKScene, SKPhysicsContactDelegate {
+    
+    //Allow initialization of Singleton for GameKit utilization
+    let sharedInstance = GCSingleton.sharedInstance
     
     // MARK: Variables
     var lastTouch: CGPoint? = nil
@@ -19,7 +23,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     var loseCondition: Int = 2000
     var changeScale : CGFloat!
     var lastTime: NSTimeInterval = 0
-  
+    
     // MARK: Node variable declaration
     var boundingNodes =     [SKNode()]
     var moveBoxNodes =      [SKNode()]
@@ -37,6 +41,10 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     var poofAnimation:      SKAction!
     let walkRepeat: Int = 10
     let sheet = poof()
+    
+    // MARK: Game Center Variables
+    var hsNotification:     SKLabelNode!
+    var hsButton:           SKLabelNode!
     
     // MARK: Sound initialization
     let boxSound = SKAction.playSoundFileNamed("BoxTouch.wav", waitForCompletion: true)
@@ -111,6 +119,8 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     // MARK: SKScene
     
     override func didMoveToView(view: SKView) {
+        // Reset score total
+        score = 0
         //Initialize an animation for the sprite atlas
         poofAnimation = SKAction.animateWithTextures(sheet.poof(), timePerFrame: 0.15)
         
@@ -138,6 +148,10 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         boxAnimate = childNodeWithName("boxPlace") as! SKSpriteNode
         powerUpNode = childNodeWithName("powerUp") as! SKSpriteNode
         holeBlock = childNodeWithName("holeBlock") as! SKSpriteNode
+        
+        //Declaring GameCenter nodes
+        hsNotification = childNodeWithName("winBlock")?.childNodeWithName("hsNotification") as! SKLabelNode
+        hsButton = childNodeWithName("winBlock")?.childNodeWithName("hsButton") as! SKLabelNode
         
         //Add the win block section and set the value to hidden
         if let winScreen = childNodeWithName("winBlock") {
@@ -224,12 +238,13 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
                     moveAction(DPad.D.move, sprite: heroNode, speed: DPad.L.speed)
                     scoreTrack()
                 } else if nodeTouch == "pauseLabel" {
-                    pause()
                     childNodeWithName("dPadMain")?.hidden = !(childNodeWithName("dPadMain")?.hidden)!
+                    pause()
                     
                     //Allow the user to restart the game or go back to the main menu
                 } else if nodeTouch == "replayButton" {if let scene = Level1(fileNamed:"GameScene"){sceneLoad(scene)}
-                } else if nodeTouch == "QuitLabel" {if let scene = MenuScene(fileNamed:"MenuScene"){sceneLoad(scene)}}
+                } else if nodeTouch == "QuitLabel" {if let scene = MenuScene(fileNamed:"MenuScene"){sceneLoad(scene)}
+                } else if nodeTouch == "hsButton" {sharedInstance.saveHS(score)}
             }
         }
     }
@@ -261,6 +276,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             contact.bodyA.node!.physicsBody!.mass = 1000
             contact.bodyA.node!.runAction(poofAnimation)
             scoreCount+=1
+            score+=1
             endLevel(scoreCount, winScore: winCondition, fall: fallBool)
             
             // IAD PowerUp
@@ -312,12 +328,16 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         if movesCounter >= loseCondition {
             winLoseMessage.text = "Too many moves!"
             winBlock.hidden = false
+            hsButton.hidden = true
+            hsNotification.hidden = true
         } else if playerScore == winScore {
             runAction(exitSound)
             winBlock.hidden = false
         } else if fall {
             winLoseMessage.text = "You fell down the hole!"
             winBlock.hidden = false
+            hsButton.hidden = true
+            hsNotification.hidden = true
         }
         fallBool = false
     }
@@ -371,6 +391,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         fallBool = true
         endLevel(scoreCount, winScore: winCondition, fall: fallBool)
     }
+
     
 }
     

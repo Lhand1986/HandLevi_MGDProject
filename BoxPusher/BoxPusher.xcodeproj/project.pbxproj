@@ -25,6 +25,7 @@
 		5D0896721D2702FD00A1D765 /* boxes.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896711D2702FD00A1D765 /* boxes.atlas */; };
 		5D0896741D27030500A1D765 /* hero.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896731D27030500A1D765 /* hero.atlas */; };
 		5D0896761D28622900A1D765 /* background.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D0896751D28622900A1D765 /* background.atlas */; };
+		5D0C1DD51D8CBB9700A89D20 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0C1DD41D8CBB9700A89D20 /* GameKit.framework */; };
 		5D1D9F5D1D4A7EDC00B91B82 /* MyActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5D1D9F5C1D4A7EDB00B91B82 /* MyActions.sks */; };
 		5D4025721D84C03D003E1133 /* powerups.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5D4025711D84C03D003E1133 /* powerups.atlas */; };
 		5D5818651D4C39B200427A1B /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5818641D4C39B200427A1B /* Level1.swift */; };
@@ -35,6 +36,7 @@
 		5DC172D41D49A4D400C5098A /* CreditsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5DC172D31D49A4D400C5098A /* CreditsScene.sks */; };
 		5DC172D61D49A4F100C5098A /* CreditsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC172D51D49A4F100C5098A /* CreditsScene.swift */; };
 		5DC172D81D49A89600C5098A /* Splash.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DC172D71D49A89600C5098A /* Splash.xcassets */; };
+		5DE43A6F1D8CCA9300D093D8 /* GCSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE43A6E1D8CCA9300D093D8 /* GCSingleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,7 @@
 		5D0896711D2702FD00A1D765 /* boxes.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = boxes.atlas; sourceTree = "<group>"; };
 		5D0896731D27030500A1D765 /* hero.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = hero.atlas; sourceTree = "<group>"; };
 		5D0896751D28622900A1D765 /* background.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = background.atlas; sourceTree = "<group>"; };
+		5D0C1DD41D8CBB9700A89D20 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		5D1D9F5C1D4A7EDB00B91B82 /* MyActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MyActions.sks; path = ../MyActions.sks; sourceTree = "<group>"; };
 		5D4025711D84C03D003E1133 /* powerups.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = powerups.atlas; sourceTree = "<group>"; };
 		5D5818641D4C39B200427A1B /* Level1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 		5DC172D31D49A4D400C5098A /* CreditsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CreditsScene.sks; sourceTree = "<group>"; };
 		5DC172D51D49A4F100C5098A /* CreditsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsScene.swift; sourceTree = "<group>"; };
 		5DC172D71D49A89600C5098A /* Splash.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Splash.xcassets; sourceTree = "<group>"; };
+		5DE43A6E1D8CCA9300D093D8 /* GCSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCSingleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D0C1DD51D8CBB9700A89D20 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +128,7 @@
 				5D08964D1D22DF8A00A1D765 /* BoxPusherTests */,
 				5D0896581D22DF8A00A1D765 /* BoxPusherUITests */,
 				5D0896331D22DF8A00A1D765 /* Products */,
+				5D0C1DD31D8CBB9700A89D20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +162,7 @@
 				5DC172D31D49A4D400C5098A /* CreditsScene.sks */,
 				5D0896371D22DF8A00A1D765 /* GameScene.sks */,
 				5D0896391D22DF8A00A1D765 /* BaseScene.swift */,
+				5DE43A6E1D8CCA9300D093D8 /* GCSingleton.swift */,
 				5D5818641D4C39B200427A1B /* Level1.swift */,
 				5D59951A1D494856003D60F8 /* MenuScene.swift */,
 				5D08963B1D22DF8A00A1D765 /* GameViewController.swift */,
@@ -186,6 +193,14 @@
 				5D08965B1D22DF8A00A1D765 /* Info.plist */,
 			);
 			path = BoxPusherUITests;
+			sourceTree = "<group>";
+		};
+		5D0C1DD31D8CBB9700A89D20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D0C1DD41D8CBB9700A89D20 /* GameKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,13 +271,23 @@
 				TargetAttributes = {
 					5D0896311D22DF8A00A1D765 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = QV8D3238N7;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					5D0896491D22DF8A00A1D765 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 5D0896311D22DF8A00A1D765;
 					};
 					5D0896541D22DF8A00A1D765 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 5D0896311D22DF8A00A1D765;
 					};
 				};
@@ -340,6 +365,7 @@
 				5D5818651D4C39B200427A1B /* Level1.swift in Sources */,
 				5DC172D61D49A4F100C5098A /* CreditsScene.swift in Sources */,
 				5DC172D01D49A46C00C5098A /* InstructionsScene.swift in Sources */,
+				5DE43A6F1D8CCA9300D093D8 /* GCSingleton.swift in Sources */,
 				5D08963C1D22DF8A00A1D765 /* GameViewController.swift in Sources */,
 				5D0896361D22DF8A00A1D765 /* AppDelegate.swift in Sources */,
 			);
@@ -485,10 +511,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = QV8D3238N7;
 				INFOPLIST_FILE = BoxPusher/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fullsail.BoxPusher;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fullsail.BoxPusher2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -496,10 +526,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = QV8D3238N7;
 				INFOPLIST_FILE = BoxPusher/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fullsail.BoxPusher;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fullsail.BoxPusher2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -512,6 +546,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fullsail.BoxPusherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoxPusher.app/BoxPusher";
 			};
 			name = Debug;
@@ -524,6 +559,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fullsail.BoxPusherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoxPusher.app/BoxPusher";
 			};
 			name = Release;
@@ -536,6 +572,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fullsail.BoxPusherUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = BoxPusher;
 			};
 			name = Debug;
@@ -547,6 +584,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fullsail.BoxPusherUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = BoxPusher;
 			};
 			name = Release;

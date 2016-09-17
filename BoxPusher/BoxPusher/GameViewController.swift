@@ -8,10 +8,17 @@
 
 import UIKit
 import SpriteKit
+import GameKit
 
 class GameViewController: UIViewController {
+    
+    //Allow initialization of Singleton for GameKit utilization
+    let sharedInstance = GCSingleton.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        authenticatePlayer()
 
         //Changed the boilerplate to load the menu scene instead of going straight into the game
         if let scene = MenuScene(fileNamed:"MenuScene") {
@@ -45,6 +52,29 @@ class GameViewController: UIViewController {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    /*Function that allows the app to check if the player is already logged into Game Center, and if not, provide a 
+     way for them to do so. */
+    func authenticatePlayer() {
+        GKLocalPlayer.localPlayer().authenticateHandler = {(ViewController, error) -> Void in
+            if((ViewController) != nil) {
+                self.presentViewController(ViewController!, animated: true, completion: nil)
+            } else if (GKLocalPlayer.localPlayer().authenticated) {
+                self.sharedInstance.enabled = true
+                GKLocalPlayer.localPlayer().setDefaultLeaderboardIdentifier("BoxPusherHighScores", completionHandler: { (error) in
+                    if error != nil {
+                        print(error)
+                    } else {
+                        //Setting this so the save function knows where to save the high scores to
+                        self.sharedInstance.leaderBoard = "BoxPusherHighScores"
+                    }
+                })
+            } else {
+                self.sharedInstance.enabled = false
+                print(error)
+            }
+        }
     }
     
 }
