@@ -11,6 +11,8 @@ import GameKit
 
 class BaseScene: SKScene, SKPhysicsContactDelegate {
     
+    
+    
     //Allow initialization of Singleton for GameKit utilization
     let sharedInstance = GCSingleton.sharedInstance
     
@@ -119,6 +121,8 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     // MARK: SKScene
     
     override func didMoveToView(view: SKView) {
+        sharedInstance.gcLoadAchievements()
+        sharedInstance.getPUDefault()
         // Reset score total
         score = 0
         //Initialize an animation for the sprite atlas
@@ -330,14 +334,20 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             winBlock.hidden = false
             hsButton.hidden = true
             hsNotification.hidden = true
+            //Negative Achievement
+            sharedInstance.reportAchievement("firstLoss")
         } else if playerScore == winScore {
             runAction(exitSound)
+            //Completion Achievement
+            sharedInstance.reportAchievement("levelOne")
             winBlock.hidden = false
         } else if fall {
             winLoseMessage.text = "You fell down the hole!"
             winBlock.hidden = false
             hsButton.hidden = true
             hsNotification.hidden = true
+            //Negative Achievement
+            sharedInstance.reportAchievement("firstLoss")
         }
         fallBool = false
     }
@@ -352,6 +362,11 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     func scoreTrack() {
         movesCounter+=1
         movesCounterLabel.text = String(movesCounter)
+        
+        // Measurement Achievement
+        if movesCounter == 5 {
+            sharedInstance.reportAchievement("movingAbout")
+        }
     }
     
     /* Create a function that will call the game scene again using the same 
@@ -379,6 +394,11 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             powerUpNode.physicsBody!.affectedByGravity = false
             powerUpNode.name = power
             holeBlock.physicsBody = nil
+            //Incremental achievement
+            sharedInstance.powerUpCount+=1
+            if sharedInstance.powerUpCount == 1 || sharedInstance.powerUpCount == 3 || sharedInstance.powerUpCount == 5{
+                sharedInstance.reportAchievement("powerUps")
+            }
         }
     }
     // Function to end the game if the user hits the hole

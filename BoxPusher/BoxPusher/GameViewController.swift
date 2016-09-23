@@ -11,13 +11,11 @@ import SpriteKit
 import GameKit
 
 class GameViewController: UIViewController {
-    
     //Allow initialization of Singleton for GameKit utilization
     let sharedInstance = GCSingleton.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         authenticatePlayer()
 
         //Changed the boilerplate to load the menu scene instead of going straight into the game
